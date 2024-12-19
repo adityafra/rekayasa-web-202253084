@@ -16,11 +16,30 @@
             <a class="nav-link active" href="/blog">Blog</a>
             </li>
         </ul>
+        @auth
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Selamat datang kembali, {{auth()->user()->name}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i> My Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <form action="/logout" method="post">
+                    @csrf
+                    <button class="dropdown-item" type="submit"><i class="bi bi-box-arrow-in-right"></i> Log Out</button>
+                </form>
+                </li>
+            </ul>
+          </li>
+          @else
+        
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
                 <a href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i>Login</a>
             </li>
         </ul>
+        @endauth
         </div>
     </div>
   </nav>
