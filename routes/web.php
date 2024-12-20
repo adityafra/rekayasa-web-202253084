@@ -11,7 +11,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('beranda', [
-        "nama" => "Adityafra",
+        "nama" => "Aditya",
         "nim" => "202253084"
     ]);
 });
